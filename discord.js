@@ -21,6 +21,7 @@ async function activity() {
     startTimestamp: timeStamp.getStartTimeStamp(
       config.activity.start_time_stamp,
     ),
+    buttons: config.activity.buttons,
   });
 }
 

@@ -9,7 +9,11 @@
     "small_image_text": "node icon",
     "start_time_stamp": "localTime",
     "twelve_hour_time": true,
+    "state_and_time": true,
     "end_time_stamp": "",
-    "buttons": [["Github", "https://github.com/EatPancake"]]
+    "buttons": [
+      { "label": "Github", "url": "https://github.com/EatPancake" },
+      { "label": "Test", "url": "https://google.com" }
+    ]
   }
 }

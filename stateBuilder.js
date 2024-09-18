@@ -12,7 +12,11 @@ module.exports = {
             .split(" ")[1] +
           ") ";
       }
-      return "current time " + hour12 + "↓";
+      let state = "";
+      if (config.activity.state_and_time) {
+        state = config.activity.state;
+      }
+      return state + " | " + "current time " + hour12 + "↓";
     } else {
       return config.activity.state;
     }

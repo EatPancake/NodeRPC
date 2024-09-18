@@ -34,9 +34,7 @@ function getLocalTimeToElapsedTime() {
   }
   return Date.now() - convertToMilliseconds(localtime);
 }
-function getStartTime() {
-  return start;
-}
+
 function convertToMilliseconds(time) {
   const [hours, minutes, seconds] = time.split(":").map(Number);
   return hours * 60 * 60 * 1000 + minutes * 60 * 1000 + seconds * 1000;
