@@ -9,16 +9,9 @@ const port = 3000;
 
 const rpc = require("./discord.js");
 
-const server = http.createServer(function (req, res) {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-
-  res.end("Hello World\n");
-});
-
-app.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
   res.render("./veiws/index.html");
 });
-
-server.listen(port, hostname, function () {
+app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
-});
+}); */

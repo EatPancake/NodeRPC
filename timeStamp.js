@@ -6,7 +6,7 @@ module.exports = {
     if (type === "localTime") {
       return getLocalTimeToElapsedTime();
     } else if (type === "elapsed") {
-      return Date.now();
+      return start;
     } else {
       null;
     }
