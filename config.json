@@ -11,9 +11,6 @@
     "twelve_hour_time": true,
     "state_and_time": true,
     "end_time_stamp": "",
-    "buttons": [
-      { "label": "Github", "url": "https://github.com/EatPancake" },
-      { "label": "Test", "url": "https://google.com" }
-    ]
+    "buttons": [{ "label": "Github", "url": "https://github.com/EatPancake" }]
   }
 }

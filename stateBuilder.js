@@ -16,7 +16,7 @@ module.exports = {
       if (config.activity.state_and_time) {
         state = config.activity.state + " | ";
       }
-      return "current time " + hour12 + "↓";
+      return state + "current time " + hour12 + "↓";
     } else {
       return config.activity.state;
     }
