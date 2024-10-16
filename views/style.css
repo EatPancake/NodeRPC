@@ -1,0 +1,144 @@
+:root {
+  --surface1: lch(10 0 0);
+  --surface2: lch(15 0 0);
+  --surface3: lch(20 0 0);
+  --surface4: lch(25 0 0);
+
+  --text1: lch(95 0 0);
+  --text2: lch(75 0 0);
+
+  --brand: lch(64 20 237);
+  --brand-bg1: lch(70 64 349);
+  --brand-bg2: lch(60 84 300);
+
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-xxl: 6rem;
+}
+body {
+  min-block-size: 100%;
+  min-inline-size: 100%;
+
+  box-sizing: border-box;
+  margin: 0;
+  padding-block: var(--space-xs);
+  background-color: var(--surface1);
+  color: var(--text1);
+  font-family: system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+main {
+  display: grid;
+  gap: var(--space-xl);
+  place-content: center;
+  padding: var(--space-sm);
+}
+
+form {
+  max-width: 95vw;
+  display: grid;
+  gap: 10rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(50ch, 100%), 35ch));
+  align-items: flex-start;
+}
+
+section {
+  display: grid;
+  gap: var(--space-md);
+}
+
+header {
+  display: grid;
+  gap: var(--space-xxs);
+}
+
+fieldset {
+  border: 1px solid var(--surface4);
+  background: var(--surface4);
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1px;
+  border-radius: var(--space-sm);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+
+  &:focus-within {
+    box-shadow: 0 5px 20px -10px hsl(0 0% 0% / 50%);
+  }
+}
+
+.fieldset-item {
+  background: var(--surface3);
+  transition: background 0.2s ease;
+
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--space-md);
+
+  padding-block: var(--space-sm);
+  padding-inline: var(--space-md);
+}
+
+small {
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+input[type="text"] {
+  border: 0;
+  border-bottom: 2px solid var(--brand-bg2);
+  outline: 0;
+  font-size: 1.3rem;
+  color: var(--text1);
+  background: transparent;
+}
+input[type="submit"] {
+  background: var(--brand-bg2);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  color: var(--text1);
+  overflow: hidden;
+  padding: 1.15em 3.5em;
+}
+input[type="checkbox"] {
+  background: var(--brand-bg2);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  color: var(--text1);
+  overflow: hidden;
+  padding: 1.15em 3.5em;
+  &checked {
+    background: var(--brand-bg2);
+  }
+}
+select {
+  background: var(--brand-bg2);
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  color: var(--text1);
+  overflow: hidden;
+  padding: 1.15em 3.5em;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

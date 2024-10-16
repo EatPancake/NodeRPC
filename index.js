@@ -1,17 +1,47 @@
 const express = require("express");
 const http = require("http");
+const fs = require("fs");
 
-const cfg = require("./config.json");
+const cfg = require("./createConfig.js");
 
-const app = express();
-const hostname = "localhost";
+const expr = express();
 const port = 3000;
 
-const rpc = require("./discord.js");
+const { app, BrowserWindow, ipcMain } = require("electron");
+let appPath = app.getAppPath();
 
-/* app.get("/", (req, res) => {
-  res.render("./veiws/index.html");
+const createWindow = () => {
+  const win = new BrowserWindow({
+    width: 850,
+    hight: 600,
+  });
+
+  win.loadFile(__dirname + "/views/index.html");
+};
+app.whenReady().then(() => {
+  createWindow();
+
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
 });
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-}); */
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
+expr.use(express.json());
+expr.get("/", (req, res) => {
+  const data = JSON.parse(fs.readFileSync("./config.json", "utf-8"));
+  res.send(data);
+});
+expr.post("/", (req, res) => {
+  const data = JSON.stringify(req.body, null, 2);
+  fs.writeFile("./config.json", data, (err) => {
+    if (err) res.send({ updated: false, message: err });
+    else res.send({ updated: true, message: "activity updated" });
+  });
+});
+expr.listen(port, () => {
+  console.log(`http://localhost:${port}`);
+});

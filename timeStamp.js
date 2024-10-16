@@ -1,4 +1,5 @@
-const config = require("./config.json");
+const fs = require("fs");
+
 const start = Date.now();
 
 module.exports = {
@@ -20,6 +21,7 @@ module.exports = {
   },
 };
 function getLocalTimeToElapsedTime() {
+  const config = JSON.parse(fs.readFileSync("./config.json", "utf-8"));
   let localtime = new Date()
     .toLocaleTimeString("en-US", {
       hour12: config.activity.twelve_hour_time,

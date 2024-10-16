@@ -1,15 +1,28 @@
-const config = require("./config.json");
+const fs = require("fs");
+
+//const config = require("./config.json");
 const timeStamp = require("./timeStamp");
 const stateBuilder = require("./stateBuilder");
 
-const ID = config.id;
+let ID = "";
 const DiscordRPC = require("discord-rpc");
-const RPC = new DiscordRPC.Client({ transport: "ipc" });
+let RPC = "";
 
-DiscordRPC.register(ID);
+module.exports = { rpcStart };
+
+function getID() {
+  try {
+    const config = JSON.parse(fs.readFileSync("./config.json", "utf-8"));
+    ID = config.id;
+  } catch (e) {
+    setTimeout(getID(), 5000);
+  }
+}
 
 async function activity() {
   if (!RPC) return;
+
+  const config = JSON.parse(fs.readFileSync("./config.json", "utf-8"));
 
   if (config.activity.start_time_stamp !== "") {
     RPC.setActivity({
@@ -38,13 +51,17 @@ async function activity() {
   }
 }
 
-RPC.on("ready", async () => {
-  console.log("RPC Presence running");
-  activity();
-
-  setInterval(() => {
+function rpcStart() {
+  getID();
+  RPC = new DiscordRPC.Client({ transport: "ipc" });
+  RPC.login({ clientId: ID });
+  DiscordRPC.register(ID);
+  RPC.on("ready", async () => {
+    console.log("RPC Presence running");
     activity();
-  }, 15000);
-});
 
-RPC.login({ clientId: ID });
+    setInterval(() => {
+      activity();
+    }, 15000);
+  });
+}

@@ -2,55 +2,110 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="module" src="page.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Pancake RPC :3</title>
   </head>
   <body>
-    <div>
-      <h1>Hi</h1>
-    </div>
-    <div>
-      <div id="preview_header">
-        <p></p>
-      </div>
-      <div id="large_image_preview">
-        <div id="large_image_preview"></div>
-        <div id="preview_text">
-          <p id="name_preview"></p>
-          <p id="details_preview"></p>
-          <p id="state_preview"></p>
-          <p id="timestamp_preview"></p>
-        </div>
-      </div>
-      <div id="preview_buttons"></div>
-    </div>
-    <div>
-      <form>
-        <label for="details">Details</label><br />
-        <input type="text" id="details" name="details" /><br />
+    <main>
+      <form id="activityForm">
+        <section>
+          <header>
+            <h2>Activity</h2>
+            <small>Set current activity</small>
+          </header>
 
-        <label for="state">state</label><br />
-        <input type="text" id="state" name="state" /><br />
+          <fieldset>
+            <div class="fieldset-item input-stack">
+              <label for="id">Bot ID</label>
+              <input type="text" id="id" name="id" />
+            </div>
 
-        <label for="large_image_key">Large Image</label><br />
-        <input type="text" id="large_image_key" name="large_image_key" /><br />
+            <div class="fieldset-item input-stack">
+              <label for="details">Details</label>
+              <input type="text" id="details" name="details" />
+            </div>
 
-        <label for="large_image_text">Large Image Text</label><br />
-        <input
-          type="text"
-          id="large_image_text"
-          name="large_image_text"
-        /><br />
+            <div class="fieldset-item input-stack">
+              <label for="state">state</label>
+              <input type="text" id="state" name="state" />
+            </div>
 
-        <label for="small_image_key">Small Image</label><br />
-        <input type="text" id="small_image_key" name="small_image_key" /><br />
+            <div class="fieldset-item input-stack">
+              <label for="large_image_key">Large Image</label>
+              <input
+                type="text"
+                id="large_image_key"
+                name="large_image_key"
+              />
+            </div>
 
-        <label for="small_image_text">Small Image Text</label><br />
-        <input
-          type="text"
-          id="small_image_text"
-          name="small_image_text"
-        /><br />
+            <div class="fieldset-item input-stack">
+              <label for="large_image_text">Large Image Text</label>
+              <input
+                type="text"
+                id="large_image_text"
+                name="large_image_text"
+              />
+            </div>
+
+            <div class="fieldset-item input-stack">
+              <label for="small_image_key">Small Image</label>
+              <input
+                type="text"
+                id="small_image_key"
+                name="small_image_key"
+              />
+            </div>
+
+            <div class="fieldset-item input-stack">
+              <label for="small_image_text">Small Image Text</label>
+              <input
+                type="text"
+                id="small_image_text"
+                name="small_image_text"
+              />
+            </div>
+          </fieldset>
+        </section>
+        <section>
+          <header>
+            <h2>Time Stamp</h2>
+            <small>Set a custom time stamp</small>
+          </header>
+          <fieldset>
+            <div class="fieldset-item input-stack">
+              <label for="time_stamp">Time Stamp</label>
+              <select id="time_stamp">
+                <option value="elapsed">Elapsed Time</option>
+                <option value="localTime">Current Time</option>
+                <option value="">None</option>
+
+              </select>
+            </div>
+
+            <div class="fieldset-item input-stack">
+              <label for="twelve_hour_time">Twelve hour</label>
+              <input type="checkbox" id="twelve_hour_time" />
+            </div>
+            <div class="fieldset-item input-stack">
+              <label for="state_and_time">State & time </label>
+              <input type="checkbox" id="state_and_time" />
+          </div>
+        </section>
+        <section>
+          <header>
+            <h2>Save</h2>
+            <small>Save changes and update status</small>
+          </header>
+          <fieldset>
+            <div class="fieldset-item">
+              <label for="submit"> Apply Changes </label>
+              <input id="submit" type="submit"/>
+            </div>
+          </fieldset>
+        </section>
       </form>
-    </div>
+    </main>
   </body>
 </html>

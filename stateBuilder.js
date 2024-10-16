@@ -1,7 +1,8 @@
-const config = require("./config.json");
+const fs = require("fs");
 
 module.exports = {
   buildState: function () {
+    const config = JSON.parse(fs.readFileSync("./config.json", "utf-8"));
     if (config.activity.start_time_stamp === "localTime") {
       let hour12 = "";
       if (config.activity.twelve_hour_time === true) {

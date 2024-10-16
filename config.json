@@ -1,5 +1,5 @@
 {
-  "id": "1284349652195348482",
+  "id": "1295609001161003029",
   "activity": {
     "details": "Node RPC by: Pancake",
     "state": "Idle",
@@ -7,10 +7,9 @@
     "large_image_text": "PanPan by: Pancake",
     "small_image_key": "https://i.imgur.com/BqsiWlo.png",
     "small_image_text": "node icon",
-    "start_time_stamp": "localTime",
+    "start_time_stamp": "elapsed",
     "twelve_hour_time": true,
     "state_and_time": true,
-    "end_time_stamp": "",
-    "buttons": [{ "label": "Github", "url": "https://github.com/EatPancake" }]
+    "end_time_stamp": ""
   }
 }
